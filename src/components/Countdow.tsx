@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ChallengesContexts } from '../contexts/ChallengesContexts';
 import styles from '../styles/components/Countdow.module.css';
 
 let countdowTimeout: NodeJS.Timeout;
 
 export function Countdow (){
+
+  const { startnewChallenge } = useContext(ChallengesContexts);
+
   const [time, setTime] = useState (0.05 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFineshed, sethasFineshed] = useState(false);
@@ -36,6 +40,7 @@ export function Countdow (){
       } else if (isActive && time === 0) {
           sethasFineshed(true);
           setIsActive(false);
+          startnewChallenge();
       }
   }, [isActive, time])
 
