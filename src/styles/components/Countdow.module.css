@@ -68,5 +68,6 @@
 .CountdowButtom:disabled {
     background: var(--white);
     color: var(--text);
+    border-bottom: 3px solid var(--green);
     cursor: not-allowed;
 }

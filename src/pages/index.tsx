@@ -4,6 +4,7 @@ import {Profile} from '../components/Profile';
 import {ExperienceBar} from '../components/ExperienceBar';
 import {CompleteChallenges} from '../components/CompleteChallenges';
 import {Countdow} from '../components/Countdow';
+import { ChallengeBox } from '../components/ChallengeBox';
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
         <Countdow />
       </div>
       <div>
-        
+        <ChallengeBox />
       </div>
     </section>
    

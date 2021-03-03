@@ -4,7 +4,7 @@ import styles from '../styles/components/Countdow.module.css';
 let countdowTimeout: NodeJS.Timeout;
 
 export function Countdow (){
-  const [time, setTime] = useState (25 * 60);
+  const [time, setTime] = useState (0.05 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFineshed, sethasFineshed] = useState(false);
 
@@ -23,7 +23,7 @@ export function Countdow (){
   function resetCountdow (){
       clearTimeout(countdowTimeout);
       setIsActive(false);
-      setTime(25 * 60);
+      setTime(0.05 * 60);
   }
     
 
