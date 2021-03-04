@@ -1,0 +1,23 @@
+// ESTRUTURA BÁSICA DE UM CONTEXTO //
+
+import { Children, createContext, ReactNode } from "react";
+
+interface CountdowContextData {
+
+}
+
+interface CountdowProviderProps{
+    children: ReactNode;
+}
+
+const CountdowContext = createContext({} as CountdowContextData)
+
+export function CountdowContextProvider ({children} : CountdowProviderProps){
+
+    
+    return(
+        <CountdowContext.Provider value={{}}>
+            {Children}
+        </CountdowContext.Provider>
+    )
+}

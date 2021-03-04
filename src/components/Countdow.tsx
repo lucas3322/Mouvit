@@ -1,50 +1,16 @@
-import { useState, useEffect, useContext } from 'react';
-import { ChallengesContexts } from '../contexts/ChallengesContexts';
+import { useContext } from 'react';
 import styles from '../styles/components/Countdow.module.css';
+import {CountdownContext} from '../contexts/CountdowContext';
 
-let countdowTimeout: NodeJS.Timeout;
+
 
 export function Countdow (){
+    const { minutes, seconds, hasFineshed, isActive, startCountdow, resetCountdow } = useContext(CountdownContext);
 
-  const { startnewChallenge } = useContext(ChallengesContexts);
-
-  const [time, setTime] = useState (0.05 * 60);
-  const [isActive, setIsActive] = useState(false);
-  const [hasFineshed, sethasFineshed] = useState(false);
-
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
-
-  const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
-  const [secondsLeft, secondsRight] = String(seconds).padStart(2, '0').split('');
+    const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
+    const [secondsLeft, secondsRight] = String(seconds).padStart(2, '0').split('');
 
     
-
-  function startCountdow (){
-      setIsActive(true);
-  }
-
-  function resetCountdow (){
-      clearTimeout(countdowTimeout);
-      setIsActive(false);
-      setTime(0.05 * 60);
-  }
-    
-
-
-  useEffect( () => {
-      if(isActive && time > 0) {
-          countdowTimeout = setTimeout(()=> {
-              setTime(time - 1);
-          },1000);
-      } else if (isActive && time === 0) {
-          sethasFineshed(true);
-          setIsActive(false);
-          startnewChallenge();
-      }
-  }, [isActive, time])
-
-
 
   return(
       <div>
